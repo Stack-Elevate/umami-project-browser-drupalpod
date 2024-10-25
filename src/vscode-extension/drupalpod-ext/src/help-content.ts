@@ -4,7 +4,8 @@
  *
  * @todo refactor this when implementing a javascript tour using messages to invoke vscode commands.
  */
-export function getHelpContent(): string {
+import * as vscode from 'vscode';
+export function getHelpContent(logoSrc: vscode.Uri): string {
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -39,6 +40,7 @@ body {
   </head>
   <body>
     <div id="page-help">
+      <img src="${logoSrc}" />
       <header id="header">
         <h1>Getting Started Contributing to Drupal</h1>
       </header>

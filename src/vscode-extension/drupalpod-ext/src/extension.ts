@@ -11,7 +11,13 @@ export async function activate(context: vscode.ExtensionContext) {
         {}
       );
 
-      panel.webview.html = getHelpContent();
+      // Get path to resource on disk
+      const onDiskPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'logo.png');
+
+      // And get the special URI to use with the webview
+      const logoSrc = panel.webview.asWebviewUri(onDiskPath);
+
+      panel.webview.html = getHelpContent(logoSrc);
     })
   );
 

@@ -90,7 +90,10 @@ if [ ! -f "${GITPOD_REPO_ROOT}"/.drupalpod_initiated ]; then
     # ddev config auto updates settings.php and generates settings.ddev.php
     ddev config --auto
     # New site install
-    time ddev drush si -y --account-pass=admin --site-name="DrupalPod" "$DP_INSTALL_PROFILE"
+    time ddev drush si -y --account-pass=admin --site-name="Umami" "$DP_INSTALL_PROFILE"
+
+    # Provide a non-profile available copy of the Umami theme.
+    source "$DIR/custom_umami_setup.sh"
 
     # Install devel and admin_toolbar modules
     if [ "$DP_EXTRA_DEVEL" != '1' ]; then
